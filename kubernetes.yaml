@@ -18,6 +18,12 @@ spec:
       containers:
       - name: mfp-twilio
         image: jabagawee/mfp-twilio
+        env:
+        - name: SMS_WEBHOOK_PATH
+          valueFrom:
+            secretKeyRef:
+              name: flask-secrets
+              key: sms-webhook-path
         ports:
         - containerPort: 5000
 ---
